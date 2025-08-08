@@ -4,8 +4,8 @@ import 'package:bmi_calculator/services/bmi_statue.dart';
 import 'package:flutter/material.dart';
 
 class ResultPage extends StatelessWidget {
-  ResultPage({super.key, required this.bmi});
-  double bmi;
+  const ResultPage({super.key, required this.bmi});
+  final double bmi;
   @override
   Widget build(BuildContext context) {
     BmiStatueAndadvice bmiStatueAndadvice = bmiStatue(bmi);
