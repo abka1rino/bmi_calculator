@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/Model/bmiStatue.dart';
 import 'package:bmi_calculator/constants/colors.dart';
 import 'package:bmi_calculator/services/bmi_statue.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +8,7 @@ class ResultPage extends StatelessWidget {
   double bmi;
   @override
   Widget build(BuildContext context) {
+    BmiStatueAndadvice bmiStatueAndadvice = bmiStatue(bmi);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColor.primaryColor,
@@ -36,10 +38,10 @@ class ResultPage extends StatelessWidget {
                   children: [
                     SizedBox(height: 80),
                     Text(
-                      bmiStatue(bmi),
+                      bmiStatueAndadvice.statue!,
                       style: TextStyle(
-                        color: Colors.blue,
-                        fontSize: 30,
+                        color: bmiStatueAndadvice.color!,
+                        fontSize: 25,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -48,7 +50,16 @@ class ResultPage extends StatelessWidget {
                       bmi.toStringAsFixed(2),
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 90,
+                        fontSize: 65,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 70),
+                    Text(
+                      bmiStatueAndadvice.advice!,
+                      style: TextStyle(
+                        color: bmiStatueAndadvice.color!,
+                        fontSize: 25,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
